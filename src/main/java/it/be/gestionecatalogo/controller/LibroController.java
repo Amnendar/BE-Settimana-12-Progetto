@@ -129,7 +129,7 @@ public class LibroController {
 		return new ResponseEntity<>(trovati, HttpStatus.ACCEPTED);
 	}
 	
-	@Operation(summary="Get Libri di piu Autori", description ="Restituisce tutti i libri scritti dagli autori corrispondenti alle id passate in input" )
+	@Operation(summary="Get Libri di piu Autori", description ="Restituisce tutti i libri scritti dagli autori corrispondenti alle id passate in input. NOTA: VISTO IL CAMBIAMENTO DI UNA RIGA SU APPLICATION PROPERTIES, SENZA LA QUALE IL METODO NON FUNZIONA, I RISULTATI AVRANNO UNA RIGA: \"hibernateLazyInitializer\": {}\" + \"IN PIU\"" )
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@GetMapping("/libriperautore/{id}")
 	public ResponseEntity<List<Libro>> findAllLibriByIdAutori(@PathVariable Set<Long> id){
